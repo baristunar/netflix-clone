@@ -15,6 +15,7 @@ import {
   NavRightMenuItem,
   InputWrapper,
 } from './styled';
+import variables from '../../styled/variables';
 
 const Navbar = () => {
   const [searchStatus, setSearchStatus] = useState(false);
@@ -101,7 +102,7 @@ const Navbar = () => {
           </NavLeft>
           <NavRight className="nav-menu-right">
             <NavRightMenuItem className="nav-menu-right-item">
-              <InputWrapper border={searchStatus ? '1px solid white' : 'none'}>
+              <InputWrapper background={searchStatus ? variables.BLACK_150 : "transparent"} border={searchStatus ? '1px solid white' : 'none'}>
                 <Button onClick={searchButtonClickHandler}>
                   <Image src={SearchIcon} height="100%" />
                 </Button>

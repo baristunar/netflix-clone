@@ -1133,6 +1133,18 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@splidejs/react-splide@^0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@splidejs/react-splide/-/react-splide-0.7.5.tgz#d645fbcb075f01468b7b8838d423f64c375e88a1"
+  integrity sha512-vsUyKE5GuXbj+zevI44PMh2MquEsmO28J9ififmoJHVZ3TF7WFcygLz5q9AFPUJvDjJngoPiM3S8b1WwvFxaFw==
+  dependencies:
+    "@splidejs/splide" "^4.0.1"
+
+"@splidejs/splide@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.0.1.tgz#386244b028d3be413a30a8b4a90c7676948ba48b"
+  integrity sha512-fgiYX5xLwOFluKKiq9hde9V1tU6wFoTzznX4fOvok95GjEKq9WvkkKBS3/WCuMDn7LXvg/Qpo3Eq0m9QQEr8tA==
+
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
