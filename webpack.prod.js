@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const PORT = process.env.PORT || 3000;
 
@@ -88,6 +89,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebPackPlugin({
       template: 'public/index.html',
       filename: 'index.html',
