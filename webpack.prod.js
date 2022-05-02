@@ -1,54 +1,54 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const PORT = process.env.PORT || 3000;
 
 module.exports = {
-  mode: "production",
+  mode: 'production',
   entry: {
-    app: "./src/index.js",
+    app: './src/index.js',
   },
   output: {
-    publicPath: "/",
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/[name].[contenthash].js",
+    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'static/[name].[contenthash].js',
     clean: true,
   },
   resolve: {
     alias: {
-      "react-dom": "@hot-loader/react-dom",
+      'react-dom': '@hot-loader/react-dom',
     },
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, "public"),
+      directory: path.join(__dirname, 'public'),
     },
-    host: "localhost",
+    host: 'localhost',
     port: PORT,
     historyApiFallback: true,
     open: true,
     compress: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: "/node_modules/",
+        exclude: '/node_modules/',
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
           },
         ],
       },
@@ -59,16 +59,29 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localsConvention: "camelCase",
-              sourceMap: true,
-            },
+            loader: 'css-loader',
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
           },
         ],
       },
@@ -76,20 +89,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "public/index.html",
-      filename: "index.html",
+      template: 'public/index.html',
+      filename: 'index.html',
     }),
     new MiniCssExtractPlugin({
-        filename: 'styles/styles.[contenthash].css'
-      })
+      filename: 'styles/styles.[contenthash].css',
+    }),
   ],
   optimization: {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: "styles",
+          name: 'styles',
           test: /\.css$/,
-          chunks: "all",
+          chunks: 'all',
           enforce: true,
         },
       },

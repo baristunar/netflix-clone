@@ -1,53 +1,53 @@
-const webpack = require("webpack");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: {
-    app: "./src/index.js",
+    app: './src/index.js',
   },
   output: {
-    publicPath: "/",
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
+    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
     clean: true,
   },
   resolve: {
     alias: {
-      "react-dom": "@hot-loader/react-dom",
+      'react-dom': '@hot-loader/react-dom',
     },
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, "public"),
+      directory: path.join(__dirname, 'public'),
     },
-    host: "localhost",
+    host: 'localhost',
     port: PORT,
     historyApiFallback: true,
     open: true,
     compress: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: "/node_modules/",
+        exclude: '/node_modules/',
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
           },
         ],
       },
@@ -55,14 +55,28 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
             options: {
-              modules: true,
-              localsConvention: "camelCase",
-              sourceMap: true,
+              limit: 10000,
             },
           },
         ],
@@ -71,8 +85,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "public/index.html",
-      filename: "index.html",
+      template: 'public/index.html',
+      filename: 'index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
@@ -80,9 +94,9 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: "styles",
+          name: 'styles',
           test: /\.css$/,
-          chunks: "all",
+          chunks: 'all',
           enforce: true,
         },
       },

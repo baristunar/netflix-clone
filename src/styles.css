@@ -1,0 +1,27 @@
+:root {
+  --black: #000;
+  --black-150: #141414;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-style: 12px;
+  background-color: var(--black-150);
+  color: var(--white);
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
