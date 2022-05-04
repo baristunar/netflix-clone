@@ -18,7 +18,7 @@ const Homepage = () => {
   const [billboard, setBillboard] = useState(null);
   const [billboardVideoKey, setBillboardVideoKey] = useState(null);
 
-  const fetchPopular = new Promise((resolve, reject) => {
+  const fetchPopular = () => {
     MovieService.fetchPopular()
       .then((resp) =>
         resolve({
@@ -27,40 +27,49 @@ const Homepage = () => {
         })
       )
       .catch((err) => reject(err));
-  });
+  };
 
-  const fetchTopRated = new Promise((resolve, reject) => {
+  const fetchTopRated = () => {
     MovieService.fetchTopRated()
       .then((resp) =>
-        resolve({
-          results: resp?.data?.results,
-          category: 'Top Rated',
-        })
+        setMovies((prevState) => [
+          ...prevState,
+          {
+            results: resp?.data?.results,
+            category: 'Top Rated',
+          },
+        ])
       )
       .catch((err) => reject(err));
-  });
+  };
 
-  const fetchWeeklyTrends = new Promise((resolve, reject) => {
+  const fetchWeeklyTrends = () => {
     MovieService.fetchTrendingMovies()
       .then((resp) =>
-        resolve({
-          results: resp?.data?.results,
-          category: 'Weekly Trend Movies',
-        })
+        setMovies((prevState) => [
+          ...prevState,
+          {
+            results: resp?.data?.results,
+            category: 'Weekly Trends',
+          },
+        ])
       )
       .catch((err) => reject(err));
-  });
+  };
 
-  const fetchUpcoming = new Promise((resolve, reject) => {
+  const fetchUpcoming = () => {
     MovieService.fetchUpcoming()
       .then((resp) =>
-        resolve({
-          results: resp?.data?.results,
-          category: 'Upcoming',
-        })
+        setMovies((prevState) => [
+          ...prevState,
+          {
+            results: resp?.data?.results,
+            category: 'Upcoming',
+          },
+        ])
       )
       .catch((err) => reject(err));
-  });
+  };
 
   const setRandomBillboard = () => {
     const randomCategory = Math.floor(Math.random() * movies.length);
@@ -79,9 +88,10 @@ const Homepage = () => {
   };
 
   useEffect(() => {
-    Promise.all([fetchPopular, fetchTopRated, fetchWeeklyTrends, fetchUpcoming])
-      .then((movies) => setMovies(movies))
-      .catch((err) => console.log(err));
+    fetchPopular();
+    fetchTopRated();
+    fetchUpcoming();
+    fetchWeeklyTrends();
   }, []);
 
   useEffect(() => {
