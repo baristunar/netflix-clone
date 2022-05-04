@@ -1,34 +1,36 @@
 import styled from 'styled-components';
+import variables from '../../styled/variables';
 
 export const Wrapper = styled.section`
-  position: absolute;
-  top: 0;
-  min-height: 100vh;
-  z-index: -1;
-  width: 100vw;
-  padding-bottom:100px;
-  background-image: url(${(props) => props.backgroundImage});
-  background-repeat: no-repeat;
-  background-size: 100% 90vh;
-  background-position: top;
+  padding-bottom: 100px;
 `;
 
 export const Billboard = styled.section`
   width: 420px;
-  margin-top: 30vh;
+  margin-top: 25vh;
 `;
 
 export const BillboardTitle = styled.h2`
-  font-size: 56px;
+  font-size: 50px;
   font-weight: bold;
   text-align: center;
+  color:${variables.PRIMARY};
 `;
 
 export const BillboardOverview = styled.p`
   font-size: 18px;
+  font-weight:bold;
   text-align: center;
-  line-height: 1.5rem;
+  line-height:1.2;
   margin-top: 20px;
+`;
+
+export const BillboardTrailer = styled.div`
+  position: absolute;
+  top: 0;
+  height: 90vh;
+  width: 100vw;
+  z-index: -1;
 `;
 
 export const ButtonWrapper = styled.div`

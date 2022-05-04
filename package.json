@@ -7,8 +7,7 @@
     "dev": "webpack-dev-server --config webpack.dev.js",
     "start": "node server.js",
     "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack --mode production --config webpack.prod.js",
-    "lint" : "./node_modules/.bin/eslint"
+    "build": "cross-env NODE_ENV=production webpack --mode production --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -57,12 +56,15 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.5",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.0",
+    "dotenv-webpack": "^7.1.0",
     "eslint-plugin-react": "^7.29.4",
     "express": "^4.18.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-player": "^2.10.0",
     "react-router-dom": "6",
     "styled-components": "^5.3.5"
   }

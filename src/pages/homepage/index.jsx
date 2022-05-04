@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react';
 import MovieRow from '../../components/movie-row';
 import { Container, Button } from '../../components/ui';
 import { MovieService } from '../../services';
-import { Wrapper, Billboard, BillboardOverview, BillboardTitle, ButtonWrapper } from './styled';
-import ReactPlayer from 'react-player';
+import {
+  Wrapper,
+  Billboard,
+  BillboardOverview,
+  BillboardTitle,
+  ButtonWrapper,
+  BillboardTrailer,
+} from './styled';
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
@@ -36,6 +42,7 @@ const Homepage = () => {
     const randomCategory = Math.floor(Math.random() * movies.length);
     const randomMovie = Math.floor(Math.random() * movies[randomCategory]?.results?.length);
     const movie = movies[randomCategory]?.results[randomMovie];
+
     setBillboard(movie);
   };
 
@@ -47,6 +54,7 @@ const Homepage = () => {
         fetchVideo(videoID);
         return;
       }
+
       setBillboardVideoKey(key);
     });
   };
@@ -70,9 +78,20 @@ const Homepage = () => {
   }, [billboard]);
 
   return (
-    <Wrapper
-      backgroundImage={process.env.IMAGE_URL + billboard?.backdrop_path}
-      className="homepage">
+    <Wrapper className="homepage">
+      {billboardVideoKey && (
+        <BillboardTrailer>
+          <iframe
+            src={`https://www.youtube.com/embed/${billboardVideoKey}?autoplay=1&mute=1&controls=0`}
+            frameBorder="0"
+            width="100%"
+            height="100%"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="video"
+          />
+        </BillboardTrailer>
+      )}
       <Container>
         {billboard && (
           <Billboard>
@@ -97,16 +116,6 @@ const Homepage = () => {
               </Button>
             </ButtonWrapper>
           </Billboard>
-        )}
-        {billboardVideoKey && (
-          <div>
-            <ReactPlayer
-              width="560px"
-              height="315px"
-              controls="false"
-              playing={true}
-              url={`https://www.youtube.com/embed/${billboardVideoKey}`}></ReactPlayer>
-          </div>
         )}
         {movies.length > 0 &&
           movies.map((data, index) => {
