@@ -40,6 +40,28 @@ const Homepage = () => {
       .catch((err) => reject(err));
   });
 
+  const fetchWeeklyTrends = new Promise((resolve, reject) => {
+    MovieService.fetchTrendingMovies()
+      .then((resp) =>
+        resolve({
+          results: resp?.data?.results,
+          category: 'Weekly Trend Movies',
+        })
+      )
+      .catch((err) => reject(err));
+  });
+
+  const fetchUpcoming = new Promise((resolve, reject) => {
+    MovieService.fetchUpcoming()
+      .then((resp) =>
+        resolve({
+          results: resp?.data?.results,
+          category: 'Upcoming',
+        })
+      )
+      .catch((err) => reject(err));
+  });
+
   const setRandomBillboard = () => {
     const randomCategory = Math.floor(Math.random() * movies.length);
     const randomMovie = Math.floor(Math.random() * movies[randomCategory]?.results?.length);
@@ -52,17 +74,12 @@ const Homepage = () => {
     MovieService.fetchVideo(videoID).then((resp) => {
       const key = resp?.data?.results[0]?.key;
 
-      if (!key) {
-        fetchVideo(videoID);
-        return;
-      }
-
       setBillboardVideoKey(key);
     });
   };
 
   useEffect(() => {
-    Promise.all([fetchPopular, fetchTopRated])
+    Promise.all([fetchPopular, fetchTopRated, fetchWeeklyTrends, fetchUpcoming])
       .then((movies) => setMovies(movies))
       .catch((err) => console.log(err));
   }, []);

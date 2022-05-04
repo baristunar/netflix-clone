@@ -14,7 +14,6 @@ class MovieService {
   static fetchUpcoming = () => {
     return HttpClient.get(urls.UPCOMING);
   };
-
   static fetchVideo = (movieID) => {
     return HttpClient.get(`/movie/${movieID}/videos`);
   };
