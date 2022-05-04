@@ -7,7 +7,7 @@ import '@splidejs/react-splide/css';
 const SLIDER_OPTIONS = {
   type: 'loop',
   fixedWidth: 200,
-  fixedHeight: 300,
+  autoHeight:true,
   gap: 15,
   rewind: true,
   pagination: false,

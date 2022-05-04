@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Logo from '../../assets/images/logo.svg';
+import variables from '../../styled/variables';
 import { NavLink } from 'react-router-dom';
 import BellRegularIcon from '../../assets/icons/bell-regular.svg';
 import AccountAvatar from '../../assets/icons/account-avatar.svg';
@@ -15,11 +16,12 @@ import {
   NavRightMenuItem,
   InputWrapper,
 } from './styled';
-import variables from '../../styled/variables';
+import useScrollPosition from '../../hooks/useScrollPosition';
 
 const Navbar = () => {
   const [searchStatus, setSearchStatus] = useState(false);
   const inputRef = useRef(null);
+  const scrollPosition = useScrollPosition();
 
   const searchButtonClickHandler = () => {
     setSearchStatus(!searchStatus);
@@ -32,7 +34,7 @@ const Navbar = () => {
   }, [searchStatus]);
 
   return (
-    <Header className="header">
+    <Header className="header" background={scrollPosition > 20 && variables.BLACK_150}>
       <Container>
         <Nav className="nav">
           <NavLeft className="nav-left">
@@ -102,7 +104,9 @@ const Navbar = () => {
           </NavLeft>
           <NavRight className="nav-menu-right">
             <NavRightMenuItem className="nav-menu-right-item">
-              <InputWrapper background={searchStatus ? variables.BLACK_150 : "transparent"} border={searchStatus ? '1px solid white' : 'none'}>
+              <InputWrapper
+                background={searchStatus ? variables.BLACK_150 : 'transparent'}
+                border={searchStatus ? '1px solid white' : 'none'}>
                 <Button onClick={searchButtonClickHandler}>
                   <Image src={SearchIcon} height="100%" />
                 </Button>

@@ -84,7 +84,7 @@ const Homepage = () => {
       {billboardVideoKey && (
         <BillboardTrailer>
           <iframe
-            src={`https://www.youtube.com/embed/${billboardVideoKey}?autoplay=1&mute=1&controls=0&loop=1&modestbranding&rel=0&showinfo=0&playlist=${billboardVideoKey}`}
+            src={`https://www.youtube.com/embed/${billboardVideoKey}?autoplay=1&mute=1&controls=0&loop=1&modestbranding=1&rel=0&showinfo=0&playlist=${billboardVideoKey}`}
             frameBorder="0"
             width="100%"
             height="100%"

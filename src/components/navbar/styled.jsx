@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import variables from '../../styled/variables';
 
 export const Header = styled.header`
+  background: ${(props) => (props.background ? props.background : 'transparent')};
   padding: 20px 0;
+  position: fixed;
+  transition:all 1s ease;
+  top: 0;
+  width: 100vw;
 `;
 
 export const Nav = styled.nav`

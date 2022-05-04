@@ -43,7 +43,7 @@ export const BillboardOverview = styled.p`
 export const BillboardTrailer = styled.div`
   position: absolute;
   top: 0;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   z-index: -1;
 `;
