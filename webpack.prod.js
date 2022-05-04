@@ -89,6 +89,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebPackPlugin({
       template: 'public/index.html',
       filename: 'index.html',
