@@ -2,8 +2,7 @@
 
 ## Introduction
 
-Cloned netflix without adding all its features. My main goals were learning webpack, styled components and eslint configuration. I used [MovieDB API for movie data](https://developers.themoviedb.org/3/getting-started/introduction). Trailers on the pages were sent as a youtube url from MovieDB api so I had to use iframe in that part.
-Trailers on the pages were sent as a youtube url from MovieDB api so I had to use iframe in that part. I feel good at responsive design but in this project I did not develop the project as responsive because of my limited time and main goal was not responsive.
+Cloned netflix without adding all its features. My main goals were learning webpack, styled components and eslint configuration. I used [MovieDB API for movie data](https://developers.themoviedb.org/3/getting-started/introduction). Trailers on the pages were sent as a youtube url from MovieDB api so I had to use iframe in that part. I feel good at responsive design but in this project I did not develop the project as responsive because of my limited time and main goal was not responsive.
 
 ## Tools
 
