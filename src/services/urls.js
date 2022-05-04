@@ -1,12 +1,13 @@
-const SERVICE_URLS = {
+const MOVIE_URLS = {
   WEEKLY_TREND_MOVIES: '/trending/movie/week',
   POPULAR: '/movie/popular',
   TOP_RATED: '/movie/top_rated',
-  UPCOMING: '/movie/upcoming'
+  UPCOMING: '/movie/upcoming',
 };
 
-const urls = {
-  ...SERVICE_URLS,
+const TV_URLS = {
+  POPULAR: 'tv/popular',
+  TOP_RATED: '/tv/top_rated',
 };
 
-export default urls;
+export { MOVIE_URLS, TV_URLS };

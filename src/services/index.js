@@ -1,3 +1,4 @@
 import MovieService from './MovieService';
+import SeriesService from './SeriesService';
 
-export { MovieService };
+export { MovieService, SeriesService };
