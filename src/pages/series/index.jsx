@@ -2,16 +2,9 @@ import React, { useEffect, useState } from 'react';
 import MovieRow from '../../components/movie-row';
 import { Container } from '../../components/ui';
 import { SeriesService } from '../../services';
-import {
-  Wrapper,
-  Billboard,
-  BillboardOverview,
-  BillboardTitle,
-  ButtonWrapper,
-  BillboardTrailer,
-  PlayButton,
-  InfoButton,
-} from './styled';
+import BillboardTrailer from '../../components/billboard-trailer';
+import Billboard from '../../components/billboard';
+import { Wrapper } from './styled';
 
 const Homepage = () => {
   const [series, setSeries] = useState([]);
@@ -83,48 +76,10 @@ const Homepage = () => {
 
   return (
     <Wrapper className="homepage">
-      {billboardVideoKey && (
-        <BillboardTrailer>
-          <iframe
-            src={`https://www.youtube.com/embed/${billboardVideoKey}?autoplay=1&mute=1&controls=0&loop=1&modestbranding=1&rel=0&showinfo=0&playlist=${billboardVideoKey}`}
-            frameBorder="0"
-            width="100%"
-            height="100%"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </BillboardTrailer>
-      )}
+      {billboardVideoKey && <BillboardTrailer videoKey={billboardVideoKey} />}
 
       <Container>
-        {billboard && (
-          <Billboard>
-            <BillboardTitle>{billboard?.name}</BillboardTitle>
-            <BillboardOverview>{billboard?.overview}</BillboardOverview>
-            <ButtonWrapper>
-              <PlayButton
-                borderRadius="20px"
-                fontWeight="bold"
-                padding="10px 0"
-                height="40px"
-                width="45%"
-                background="white"
-                color="black">
-                Play
-              </PlayButton>
-              <InfoButton
-                borderRadius="20px"
-                fontWeight="bold"
-                padding="10px 0"
-                height="40px"
-                width="45%"
-                background="rgba(55,54,55,0.5)"
-                color="white">
-                More Information
-              </InfoButton>
-            </ButtonWrapper>
-          </Billboard>
-        )}
+        {billboard && <Billboard overview={billboard.overview} title={billboard.name} />}
         {series.length > 0 &&
           series.map((data, index) => {
             return <MovieRow movieData={data} key={`category_id_${index}`} />;

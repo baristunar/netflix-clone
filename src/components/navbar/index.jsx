@@ -76,18 +76,6 @@ const Navbar = () => {
                   Movies
                 </NavLink>
               </NavLeftMenuItem>
-              <NavLeftMenuItem className="nav-menu-left-item">
-                <NavLink
-                  style={({ isActive }) => {
-                    return {
-                      fontWeight: isActive ? 'bold' : 'normal',
-                    };
-                  }}
-                  className="nav-link"
-                  to="/new-and-popular">
-                  New and Popular
-                </NavLink>
-              </NavLeftMenuItem>
             </NavLeftMenu>
           </NavLeft>
           <NavRight className="nav-menu-right">
