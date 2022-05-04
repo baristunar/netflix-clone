@@ -60,8 +60,8 @@ const Navbar = () => {
                     };
                   }}
                   className="nav-link"
-                  to="/test">
-                  Diziler
+                  to="/series">
+                  TV Series
                 </NavLink>
               </NavLeftMenuItem>
               <NavLeftMenuItem className="nav-menu-left-item">
@@ -72,8 +72,8 @@ const Navbar = () => {
                     };
                   }}
                   className="nav-link"
-                  to="/test">
-                  Filmler
+                  to="/movies">
+                  Movies
                 </NavLink>
               </NavLeftMenuItem>
               <NavLeftMenuItem className="nav-menu-left-item">
@@ -84,20 +84,8 @@ const Navbar = () => {
                     };
                   }}
                   className="nav-link"
-                  to="/test">
-                  Yeni ve Popüler
-                </NavLink>
-              </NavLeftMenuItem>
-              <NavLeftMenuItem className="nav-menu-left-item">
-                <NavLink
-                  style={({ isActive }) => {
-                    return {
-                      fontWeight: isActive ? 'bold' : 'normal',
-                    };
-                  }}
-                  className="nav-link"
-                  to="/test">
-                  Listem
+                  to="/new-and-popular">
+                  New and Popular
                 </NavLink>
               </NavLeftMenuItem>
             </NavLeftMenu>
