@@ -14,10 +14,13 @@ const Homepage = () => {
   const fetchPopular = () => {
     MovieService.fetchPopular()
       .then((resp) =>
-        resolve({
-          results: resp?.data?.results,
-          category: 'Popular Now',
-        })
+        setMovies((prevState) => [
+          ...prevState,
+          {
+            results: resp?.data?.results,
+            category: 'Popular Now',
+          },
+        ])
       )
       .catch((err) => console.log(err));
   };
