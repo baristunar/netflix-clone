@@ -44,7 +44,7 @@ export const BillboardTrailer = styled.div`
   position: absolute;
   top: 0;
   height: 80vh;
-  width: 100vw;
+  width: 100%;
   z-index: -1;
 `;
 
