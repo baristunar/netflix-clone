@@ -3,11 +3,12 @@ import { Wrapper, Title } from './styled';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Image, Button } from '../ui';
 import '@splidejs/react-splide/css';
+import propTypes from 'prop-types';
 
 const SLIDER_OPTIONS = {
   type: 'loop',
   fixedWidth: 200,
-  autoHeight:true,
+  autoHeight: true,
   gap: 15,
   rewind: true,
   pagination: false,
@@ -40,3 +41,7 @@ const MovieRow = ({ movieData }) => {
 };
 
 export default MovieRow;
+
+MovieRow.propTypes = {
+  movieData: propTypes.object,
+};

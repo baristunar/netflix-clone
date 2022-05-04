@@ -8,6 +8,8 @@ import {
   ButtonWrapper,
 } from './styled';
 
+import propTypes from 'prop-types';
+
 const Billboard = ({ title, overview }) => {
   return (
     <BillboardWrapper>
@@ -40,3 +42,8 @@ const Billboard = ({ title, overview }) => {
 };
 
 export default Billboard;
+
+Billboard.propTypes = {
+  title: propTypes.string,
+  overview: propTypes.string,
+};

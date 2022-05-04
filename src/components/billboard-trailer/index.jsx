@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyledBillboardTrailer } from './styled';
+import propTypes from 'prop-types';
 
-const BillboardTrailer = ({videoKey}) => {
+const BillboardTrailer = ({ videoKey }) => {
   return (
     <StyledBillboardTrailer>
       <iframe
@@ -17,3 +18,7 @@ const BillboardTrailer = ({videoKey}) => {
 };
 
 export default BillboardTrailer;
+
+BillboardTrailer.propTypes = {
+  videoKey: propTypes,
+};

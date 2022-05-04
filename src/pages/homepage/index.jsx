@@ -19,7 +19,7 @@ const Homepage = () => {
           category: 'Popular Now',
         })
       )
-      .catch((err) => reject(err));
+      .catch((err) => console.log(err));
   };
 
   const fetchTopRated = () => {
@@ -33,7 +33,7 @@ const Homepage = () => {
           },
         ])
       )
-      .catch((err) => reject(err));
+      .catch((err) => console.log(err));
   };
 
   const fetchWeeklyTrends = () => {
@@ -47,7 +47,7 @@ const Homepage = () => {
           },
         ])
       )
-      .catch((err) => reject(err));
+      .catch((err) => console.log(err));
   };
 
   const fetchUpcoming = () => {
@@ -61,7 +61,7 @@ const Homepage = () => {
           },
         ])
       )
-      .catch((err) => reject(err));
+      .catch((err) => console.log(err));
   };
 
   const setRandomBillboard = () => {
