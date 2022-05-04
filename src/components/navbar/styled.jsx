@@ -6,6 +6,7 @@ export const Header = styled.header`
   padding: 20px 0;
   position: fixed;
   transition:all 1s ease;
+  z-index:100;
   top: 0;
   width: 100vw;
 `;
