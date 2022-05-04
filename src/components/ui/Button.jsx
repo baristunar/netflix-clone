@@ -12,11 +12,7 @@ const StyledButton = styled.div`
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'center')};
   font-weight: ${(props) => (props.fontWeight ? props.fontWeight : 'normal')};
   transition: all 0.2s ease;
-
-  &:hover {
-    background: ${(props) => props.color};
-    color: ${(props) => props.background};
-  }
+  border-radius: ${(props) => props.borderRadius};
 `;
 
 const Button = React.forwardRef((props, ref) => {

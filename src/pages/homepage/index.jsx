@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MovieRow from '../../components/movie-row';
-import { Container, Button } from '../../components/ui';
+import { Container } from '../../components/ui';
 import { MovieService } from '../../services';
 import {
   Wrapper,
@@ -9,6 +9,8 @@ import {
   BillboardTitle,
   ButtonWrapper,
   BillboardTrailer,
+  PlayButton,
+  InfoButton,
 } from './styled';
 
 const Homepage = () => {
@@ -82,38 +84,42 @@ const Homepage = () => {
       {billboardVideoKey && (
         <BillboardTrailer>
           <iframe
-            src={`https://www.youtube.com/embed/${billboardVideoKey}?autoplay=1&mute=1&controls=0`}
+            src={`https://www.youtube.com/embed/${billboardVideoKey}?autoplay=1&mute=1&controls=0&loop=1&modestbranding&rel=0&showinfo=0&playlist=${billboardVideoKey}`}
             frameBorder="0"
             width="100%"
             height="100%"
-            allow="autoplay; encrypted-media"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            title="video"
           />
         </BillboardTrailer>
       )}
+
       <Container>
         {billboard && (
           <Billboard>
             <BillboardTitle>{billboard?.title}</BillboardTitle>
             <BillboardOverview>{billboard?.overview}</BillboardOverview>
             <ButtonWrapper>
-              <Button
+              <PlayButton
+                borderRadius="20px"
                 fontWeight="bold"
                 padding="10px 0"
+                height="40px"
                 width="45%"
                 background="white"
                 color="black">
                 Play
-              </Button>
-              <Button
+              </PlayButton>
+              <InfoButton
+                borderRadius="20px"
                 fontWeight="bold"
                 padding="10px 0"
+                height="40px"
                 width="45%"
                 background="rgba(55,54,55,0.5)"
                 color="white">
                 More Information
-              </Button>
+              </InfoButton>
             </ButtonWrapper>
           </Billboard>
         )}
